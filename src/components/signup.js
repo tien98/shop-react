@@ -25,7 +25,7 @@ class signup extends React.Component {
     }
     handleSubmitForm(e) {
         e.preventDefault();
-        this.fetchData.postWithoutAuth(`${this.Auth.apiHome}user/signup`, {
+        this.fetchData.postWithoutAuth(`${this.Auth.apiHome}/user/signup`, {
             email: this.state.email,
             password: this.state.password,
             firstName: this.state.firstName

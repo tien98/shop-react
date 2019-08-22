@@ -2,14 +2,14 @@ import decode from 'jwt-decode';
 
 export default class authService{
     constructor(domain){
-        this.domain = domain || `https://call-server-api.herokuapp.com/`;
-        this.fetch = this.fetch.bind(this);
+        this.domain = domain || `http://localhost:5000`;
         this.login = this.login.bind(this);
         this.getProfile = this.getProfile.bind(this);
-        this.apiHome = 'https://call-server-api.herokuapp.com/'
+        this.fetch = this.fetch.bind(this);
+        this.apiHome = 'http://localhost:5000'
     }
     login(email, password){
-        return this.fetch(`${this.domain}/user/login`,{
+        return this.fetch(`${this.domain}/user/login`, {
             method: 'POST',
             body: JSON.stringify({
                 email,
@@ -20,6 +20,27 @@ export default class authService{
                 this.setToken(res.token);
                 return Promise.resolve(res);
             })
+        // let headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        // headers.append('Accept', 'application/json');
+        // headers.append('Access-Control-Allow-Credentials', 'true');
+        // if (this.loggedIn()) {
+        //     headers['Authorization'] = `Bearer ${this.getToken()}`;
+        // }
+        // return fetch(`${this.domain}/user/login`, {
+        //     headers: headers,
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         email,
+        //         password
+        //     })
+        // })
+        //     .then(res => res.json())
+        //     .then(res => {
+        //         if (res.status === 200)
+        //             this.setToken(res.token);
+        //             return Promise.resolve(res);
+        //     })
     }
     fetch(url, options){
         const headers = {
