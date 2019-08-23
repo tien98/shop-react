@@ -1,11 +1,11 @@
 import decode from 'jwt-decode';
 export default class authService{
     constructor(domain){
-        this.domain = domain || `http://call-server-api.herokuapp.com`;
+        this.domain = domain || `https://call-server-api.herokuapp.com`;
         this.login = this.login.bind(this);
         this.getProfile = this.getProfile.bind(this);
         this.fetch = this.fetch.bind(this);
-        this.apiHome = 'http://call-server-api.herokuapp.com'
+        this.apiHome = 'https://call-server-api.herokuapp.com'
     }
     login(email, password){
         return this.fetch(`${this.domain}/user/login`,{
