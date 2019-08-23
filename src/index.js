@@ -5,7 +5,6 @@ import './index.css';
 import App from './App';
 import Login from './components/login';
 import SignUp from './components/signup';
-
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

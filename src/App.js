@@ -31,7 +31,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-            <h2>Welcome to {this.props.user.email}</h2>
+            <h2>Welcome to {this.props.user.name}</h2>
             <button 
               type="button"
               onClick={this.hanldeLogout.bind(this)}
